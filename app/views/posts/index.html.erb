@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+    <%= current_user.email %> 님 안녕하세요.
+    <a href="/users/sign_out" data-method="delete">로그아웃</a>
+<% else %>
+    <a href="/users/sign_in">로그인</a>
+<% end %>
+<hr>
+
+<% @posts.each do |post| %>
+    title : <%= post.title %>
+    content : <%= post.content %>
+    <a href="/posts/show/<%= post.id %>">보기</a>
+    <a href="/posts/edit/<%= post.id %>">수정</a>
+    <a href="/posts/destroy/<%= post.id %>">삭제</a>
+    <hr>
+<% end %>
+
+<a href="<%= posts_new_path %>">글 작성하러 가기</a>
