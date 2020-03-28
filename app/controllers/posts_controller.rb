@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     
     @post.title = params[:title]
     @post.content = params[:content]
-    @post.user_email = params[:email]
+    @post.user_id = current_user.id
     
     @post.save
     
